@@ -38,7 +38,7 @@ namespace MatrixGameProject
                     break;
             }
 
-            File.WriteAllText(filename, sb.ToString(), Encoding.GetEncoding(1251));
+            File.WriteAllText(filename, sb.ToString(), Encoding.UTF8);
 
             //var utf16 = Encoding.GetEncoding(1251);
             //var output = utf16.GetBytes(sb.ToString());
@@ -55,7 +55,7 @@ namespace MatrixGameProject
         {
             var converter = new MatrixCaseLatexConverter();
             var converted = converter.Convert(matrixCase);
-            File.WriteAllText(filename, converted, Encoding.GetEncoding(1251));
+            File.WriteAllText(filename, converted, new UTF8Encoding(false));
         }
     }
 }
