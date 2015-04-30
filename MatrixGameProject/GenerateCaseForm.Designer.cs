@@ -91,6 +91,7 @@
             this.exportLaTeX.TabIndex = 11;
             this.exportLaTeX.Text = "Экспорт в LaTeX";
             this.exportLaTeX.UseVisualStyleBackColor = true;
+            this.exportLaTeX.Click += new System.EventHandler(this.exportLaTeX_Click);
             // 
             // checkBox1
             // 

@@ -50,5 +50,12 @@ namespace MatrixGameProject
             //bw.Close();
             //fs.Close();
         }
+
+        public static void ToLaTeX(MatrixCase matrixCase, string filename = @"C:\export.csv")
+        {
+            var converter = new MatrixCaseLatexConverter();
+            var converted = converter.Convert(matrixCase);
+            File.WriteAllText(filename, converted, Encoding.GetEncoding(1251));
+        }
     }
 }

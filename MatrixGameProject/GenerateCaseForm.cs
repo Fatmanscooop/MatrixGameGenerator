@@ -177,5 +177,24 @@ namespace MatrixGameProject
                 MatrixCaseExporter.ToCsv(Case, sfd.FileName); // Here dataGridview1 is your grid view name 
         }
 
+        private void exportLaTeX_Click(object sender, EventArgs e)
+        {
+            var sfd = new SaveFileDialog
+            {
+                Filter = @"TeX Files(*.tex)|*.tex",
+                FileName = string.Format("export_{0}.tex",
+                                         DateTime.Now.ToString(CultureInfo.InvariantCulture)
+                                                 .Replace("/", "_")
+                                                 .Replace(":", "_")),
+            };
+
+            if (sfd.ShowDialog() != DialogResult.OK)
+                return;
+
+            if (Case.HasValue)
+                MatrixCaseExporter.ToLaTeX(Case, sfd.FileName);
+
+        }
+
     }
 }
